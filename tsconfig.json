@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    // "target": "ES2017",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    // "experimentalDecorators": true,
+    // "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    // "strictFunctionTypes": true,
+    // "strictBindCallApply": true,
+    "strictPropertyInitialization": false,
+    // "skipLibCheck": true,
+    // "rootDir": ".",
+    "jsx": "preserve",
+    "baseUrl": "."
+    // "paths": {
+    //   "/*": ["./*"]
+    // },
+    // "typeRoots": ["./node_modules/@types", "./src/types"]
+  },
+  "exclude": ["node_modules", "**/tests/*"]
+}
