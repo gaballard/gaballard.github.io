@@ -9,17 +9,69 @@ const robBoss = require('../../public/images/1.5/rob-boss.jpeg');
 const noSmoking = require('../../public/images/1.5/no-smoking.jpeg');
 const youCanSeeForMiles = require('../../public/images/1.5/you-can-see-for-miles.jpeg');
 const tourism = require('../../public/images/1.5/tourism.jpeg');
-const engageYourOlfactory = require('../../public/images/1.5/engage-your-olfactory.jpeg');
+const engageWithDelight = require('../../public/images/1.5/engage-your-olfactory.jpeg');
 const augmentedReality = require('../../public/images/1.5/augmented-reality.jpeg');
 const theCreator = require('../../public/images/xl/the-creator.jpeg');
 const letsTakeATour = require('../../public/images/xl/lets-take-a-tour.jpeg');
 const pleaseSendFeelings = require('../../public/images/xl/please-send-feelings.jpeg');
 const youParentsDidDrugsToo = require('../../public/images/xl/your-parents-did-drugs-too.jpeg');
 const iWishIUnderstoodThings = require('../../public/images/xl/i-wish-i-understood-things.jpeg');
+const aNationIsGrieving = require('../../public/images/xl/a-nation-is-grieving.jpeg');
+const coldComfort = require('../../public/images/xl/cold-comfort.jpeg');
+const grayBaby = require('../../public/images/xl/gray-baby.jpeg');
+const iCantGoBackInThere = require('../../public/images/xl/i-cant-go-back-in-there.jpeg');
+const iHopeHeLikesMe = require('../../public/images/xl/i-hope-he-likes-me.jpeg');
+const iThoughtTheyAlreadyRanThisTest = require('../../public/images/xl/i-thought-they-already-ran-this-test.jpeg');
+const livingRoom = require('../../public/images/xl/living-room.jpeg');
+const lostIn = require('../../public/images/xl/lost-in.jpeg');
+const myGodHaveIWastedMyLife = require('../../public/images/xl/my-god-have-i-wasted-my-life.jpeg');
+const sitStill = require('../../public/images/xl/sit-still.jpeg');
+const theOrphanage = require('../../public/images/xl/the-orphanage.jpeg');
+const theSimuvacBrothers = require('../../public/images/xl/the-simulac-brothers.jpeg');
+const theScienceOfMath = require('../../public/images/1.5/the-science-of-math.jpeg');
+const theSingularityAppears = require('../../public/images/xl/the-singularity-appears-or-egads.jpeg');
+const theirLivesAreMyResponsibility = require('../../public/images/xl/their-lives-are-my-responsibility.jpeg');
+const thereGoesTheNeighborhood = require('../../public/images/xl/there-goes-the-neighborhood.jpeg');
+const tvc15OrIDidntWantToGoBack = require('../../public/images/xl/tvc15-or-i-didnt-want-to-go-back.jpeg');
+const whenABodyMeetsABody = require('../../public/images/xl/when-a-body-meets-a-body.jpeg');
+const whoAm = require('../../public/images/xl/who-am.jpeg');
 
 export const Gallery: React.FC = () => {
   const imageSize = useRef('500px');
   const images = useRef<TImageData[]>([
+    {
+      name: 'theirLivesAreMyResponsibility',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: "Their Lives Are My Responsibility",
+      positive_prompt:
+        'a person is lonely in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: theirLivesAreMyResponsibility,
+    },
+    {
+      name: 'theScienceOfMath',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: '1.5',
+      caption: "The Science of Math",
+      positive_prompt:
+        'a person is in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: theScienceOfMath,
+    },
+    {
+      name: 'whenABodyMeetsABody',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: "When A Body Meets A Body",
+      positive_prompt:
+        'a person is feeling empty in the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: whenABodyMeetsABody,
+    },
     {
       name: 'iDidntLikeTheAnswer',
       image_url: 'i-didnt-like-the-answer.jpeg',
@@ -30,6 +82,17 @@ export const Gallery: React.FC = () => {
         'a person asking themselves "who am i and what am I doing here?" as a 3d model as a 1960s photograph',
       negative_prompt: '',
       image: iDidntLikeTheAnswer,
+    },
+    {
+      name: 'whoAm',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: "Who Am...",
+      positive_prompt:
+        'a person asking themselves "who am i?" as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: whoAm,
     },
     {
       name: 'theCreator',
@@ -47,7 +110,7 @@ export const Gallery: React.FC = () => {
       image_url: 'hypnoface.jpeg',
       model_name: 'Stable Diffusion',
       model_version: '1.5',
-      caption: 'In the Internet of the Future Pt. 1',
+      caption: 'The Face of the Future',
       positive_prompt: 'a human in the internet of the future as a 3d model',
       image: hypnoface,
     },
@@ -105,7 +168,7 @@ export const Gallery: React.FC = () => {
       image: tourism,
     },
     {
-      name: 'engageYourOlfactory',
+      name: 'engageWithDelight',
       image_url: 'engage-your-olfactory.jpeg',
       model_name: 'Stable Diffusion',
       model_version: '1.5',
@@ -113,7 +176,7 @@ export const Gallery: React.FC = () => {
       positive_prompt:
         'a person asking themselves "who am i and what am I doing here?" as a 3d model as a 1960s photograph',
       negative_prompt: '',
-      image: engageYourOlfactory,
+      image: engageWithDelight,
     },
     {
       name: 'augmentedReality',
@@ -260,7 +323,7 @@ export const Gallery: React.FC = () => {
           The Future
           <br />
           <marquee>
-            <i>Is Lonely & Terrible</i>
+            <i>Is Strange & Lonely</i>
           </marquee>
         </Heading>
       </Box>
