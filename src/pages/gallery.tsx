@@ -40,11 +40,66 @@ export const Gallery: React.FC = () => {
   const imageSize = useRef('500px');
   const images = useRef<TImageData[]>([
     {
+      name: 'livingRoom',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: 'Living Space 001',
+      positive_prompt:
+        'empty loneliness in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: livingRoom,
+    },
+    {
+      name: 'myGodHaveIWastedMyLife',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: 'My God, Have I Wasted My Life?',
+      positive_prompt:
+        'a person is lost in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: myGodHaveIWastedMyLife,
+    },
+    {
+      name: 'iHopeHeLikesMe',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: 'I Hope He Likes Me',
+      positive_prompt:
+        'empty loneliness in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: iHopeHeLikesMe,
+    },
+    {
+      name: 'iCantGoBackInThere',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: "I Can't Go Back",
+      positive_prompt:
+        'a person is feeling empty loneliness in the internet of the future as a 3d model as a 1980s photograph',
+      negative_prompt: '',
+      image: iCantGoBackInThere,
+    },
+    {
+      name: 'aNationIsGrieving',
+      image_url: '',
+      model_name: 'Stable Diffusion',
+      model_version: 'XL',
+      caption: 'A Nation is Grieving',
+      positive_prompt:
+        'empty loneliness in the internet of the future as a 3d model as a 1960s photograph',
+      negative_prompt: '',
+      image: aNationIsGrieving,
+    },
+    {
       name: 'theirLivesAreMyResponsibility',
       image_url: '',
       model_name: 'Stable Diffusion',
       model_version: 'XL',
-      caption: "Their Lives Are My Responsibility",
+      caption: 'Their Lives Are My Responsibility',
       positive_prompt:
         'a person is lonely in the internet of the future as a 3d model as a 1960s photograph',
       negative_prompt: '',
@@ -55,7 +110,7 @@ export const Gallery: React.FC = () => {
       image_url: '',
       model_name: 'Stable Diffusion',
       model_version: '1.5',
-      caption: "The Science of Math",
+      caption: 'The Science of Math',
       positive_prompt:
         'a person is in the internet of the future as a 3d model as a 1960s photograph',
       negative_prompt: '',
@@ -66,7 +121,7 @@ export const Gallery: React.FC = () => {
       image_url: '',
       model_name: 'Stable Diffusion',
       model_version: 'XL',
-      caption: "When A Body Meets A Body",
+      caption: 'When A Body Meets A Body',
       positive_prompt:
         'a person is feeling empty in the future as a 3d model as a 1960s photograph',
       negative_prompt: '',
@@ -88,7 +143,7 @@ export const Gallery: React.FC = () => {
       image_url: '',
       model_name: 'Stable Diffusion',
       model_version: 'XL',
-      caption: "Who Am...",
+      caption: 'Who Am...',
       positive_prompt:
         'a person asking themselves "who am i?" as a 3d model as a 1960s photograph',
       negative_prompt: '',
@@ -229,30 +284,23 @@ export const Gallery: React.FC = () => {
 
     for (let i = 0, il = images.current.length; i < il; i += 2) {
       response.push(
-        <Box direction="row" gap="large" align="center">
+        <Box direction="row" gap="medium" align="center" fill="horizontal">
           {images.current[i].image && (
             <Box
+              width="50%"
               elevation="large"
               background="white"
-              pad={{ horizontal: 'small', top: 'small' }}
+              pad={{ horizontal: 'medium', top: 'medium' }}
             >
               {images.current[i].link_url && (
                 <Link
                   to={`../../public/images/${images.current[i].model_version}/${images.current[i].image_url}`}
                 >
-                  <Image
-                    src={images.current[i].image}
-                    height={imageSize.current}
-                    width={imageSize.current}
-                  />
+                  <Image src={images.current[i].image} />
                 </Link>
               )}
               {!images.current[i].link_url && (
-                <Image
-                  src={images.current[i].image}
-                  height={imageSize.current}
-                  width={imageSize.current}
-                />
+                <Image src={images.current[i].image} />
               )}
               <Button
                 plain
@@ -262,11 +310,12 @@ export const Gallery: React.FC = () => {
               </Button>
             </Box>
           )}
-          {images.current[i + 1]?.image && (
+          {images.current[i + 1]?.image ? (
             <Box
+              width="50%"
               elevation="large"
               background="white"
-              pad={{ horizontal: 'small', top: 'small' }}
+              pad={{ horizontal: 'medium', top: 'medium' }}
             >
               {images.current[i + 1].link_url && (
                 <Link
@@ -274,19 +323,11 @@ export const Gallery: React.FC = () => {
                     images.current[i + 1].model_version
                   }/${images.current[i + 1].image_url}`}
                 >
-                  <Image
-                    src={images.current[i + 1].image}
-                    height={imageSize.current}
-                    width={imageSize.current}
-                  />
+                  <Image src={images.current[i + 1].image} />
                 </Link>
               )}
               {!images.current[i + 1].link_url && (
-                <Image
-                  src={images.current[i + 1].image}
-                  height={imageSize.current}
-                  width={imageSize.current}
-                />
+                <Image src={images.current[i + 1].image} />
               )}
 
               <Button
@@ -298,6 +339,8 @@ export const Gallery: React.FC = () => {
                 <Box pad="1rem">{images.current[i + 1].caption}</Box>
               </Button>
             </Box>
+          ) : (
+            <Box width="50%" />
           )}
         </Box>
       );
@@ -309,7 +352,8 @@ export const Gallery: React.FC = () => {
   return (
     <Main
       align="center"
-      pad={{ horizontal: 'medium', vertical: 'large' }}
+      // pad={{ horizontal: 'medium', vertical: 'large' }}
+      pad="large"
       gap="medium"
       background={`url('${background}')`}
       style={{
