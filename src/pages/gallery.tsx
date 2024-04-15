@@ -1,5 +1,5 @@
-import { Box, Button, Heading, Image, Main } from 'grommet';
-import { useMemo, useRef } from 'react';
+import { Box, Button, Heading, Image, Main, ResponsiveContext } from 'grommet';
+import { useContext, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { TImageData } from 'src/types';
 const background = require('../../public/images/1.5/background.jpeg');
@@ -42,6 +42,7 @@ export const Gallery: React.FC = () => {
     {
       name: 'livingRoom',
       image_url: '',
+      link_url: '../../public/images/xl/living-room.jpeg',
       model_name: 'Stable Diffusion',
       model_version: 'XL',
       caption: 'Living Space 001',
@@ -279,12 +280,26 @@ export const Gallery: React.FC = () => {
     },
   ]);
 
+  const screenSize = useContext(ResponsiveContext);
+
+  const isMobile = useMemo(
+    () => screenSize === ('small' || 'xsmall'),
+    [screenSize]
+  );
+
   const imageList = useMemo(() => {
     const response: React.ReactNode[] = [];
 
     for (let i = 0, il = images.current.length; i < il; i += 2) {
       response.push(
-        <Box direction="row" gap="medium" align="center" fill="horizontal">
+        <Box
+          direction="row"
+          pad={{ horizontal: '10rem' }}
+          gap="5rem"
+          align="center"
+          fill="horizontal"
+          justify="center"
+        >
           {images.current[i].image && (
             <Box
               width="50%"
@@ -292,16 +307,11 @@ export const Gallery: React.FC = () => {
               background="white"
               pad={{ horizontal: 'medium', top: 'medium' }}
             >
-              {images.current[i].link_url && (
-                <Link
-                  to={`../../public/images/${images.current[i].model_version}/${images.current[i].image_url}`}
-                >
+              <Link to={images.current[i].image}>
+                <Box>
                   <Image src={images.current[i].image} />
-                </Link>
-              )}
-              {!images.current[i].link_url && (
-                <Image src={images.current[i].image} />
-              )}
+                </Box>
+              </Link>
               <Button
                 plain
                 tip={`${images.current[i].positive_prompt} (${images.current[i].model_name} ${images.current[i].model_version})`}
@@ -317,19 +327,11 @@ export const Gallery: React.FC = () => {
               background="white"
               pad={{ horizontal: 'medium', top: 'medium' }}
             >
-              {images.current[i + 1].link_url && (
-                <Link
-                  to={`../../public/images/${
-                    images.current[i + 1].model_version
-                  }/${images.current[i + 1].image_url}`}
-                >
+              <Link to={images.current[i + 1].image}>
+                <Box>
                   <Image src={images.current[i + 1].image} />
-                </Link>
-              )}
-              {!images.current[i + 1].link_url && (
-                <Image src={images.current[i + 1].image} />
-              )}
-
+                </Box>
+              </Link>
               <Button
                 plain
                 tip={`${images.current[i + 1].positive_prompt} (${
@@ -353,7 +355,7 @@ export const Gallery: React.FC = () => {
     <Main
       align="center"
       // pad={{ horizontal: 'medium', vertical: 'large' }}
-      pad="large"
+      pad={{ vertical: 'large' }}
       gap="medium"
       background={`url('${background}')`}
       style={{

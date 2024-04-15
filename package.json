@@ -1,7 +1,7 @@
 {
-  "name": "horrorsofai",
+  "name": "the-future-is-strange-and-terrible",
   "version": "1.0.0",
-  "description": "",
+  "description": "See name",
   "source": "public/index.html",
   "scripts": {
     "build": "parcel build",
